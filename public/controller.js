@@ -20,7 +20,6 @@ var Controller = React.createClass({
     })
   },
   render: function() {
-    console.log(this.state.commands)
     return (
       <div className='controller'>
         <View commands={this.state.commands} />
