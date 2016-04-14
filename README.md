@@ -9,7 +9,7 @@ Many first encounters with the [FLUX design pattern](https://facebook.github.io/
 * love reactjs <3333
 
 ## Quickstart
-While explaining all of the different components of this application can be difficult, getting up and running with this application is relatively painless. in order to follow this tutorial, we assume that you have [nodejs](need_link) and [npm](need_link) installed on your computer, and that you are capable of accessing the [command line from your machine.](need_link)
+While explaining all of the different components of this application can be difficult, getting up and running with this application is relatively painless. in order to follow this tutorial, we assume that you have [nodejs](https://nodejs.org/en/download/) and [npm](https://www.npmjs.com/) installed on your computer (node usually installs this for you), and that you are capable of accessing the [command line from your machine.](http://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything)
 
 ```bash
 # change into the folder where you want your project
@@ -30,16 +30,16 @@ That's it! now you can navigate to `http://localhost:4000` to view your installe
 
 ## Prerequisites
 In order to properly launch this demo, you will need to have the following packages installed:
-* [nodejs](need_link)
-* [npm](need_link)
-* [gulp](need_link)
-* [git](need_link)
+* [nodejs](https://nodejs.org/en/download/)
+* [npm](https://www.npmjs.com/)
+* [gulp](http://gulpjs.com/)
+* [git](https://git-scm.com/)
 
 In addition, you should have some familiarity with using a command line on your computer's operating system.
 
-* [understanding the command line on windows](need_link)
-* [understanding the command line on mac](need_link)
-* [understanding the command line on linux](need_link)
+* [understanding the command line on windows](http://www.computerhope.com/issues/chusedos.htm)
+* [understanding the command line on mac](http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line)
+* [understanding the command line on linux](http://ryanstutorials.net/linuxtutorial/)
 
 ## Ok, so what are we building?
 In this tutorial, we are building a basic command prompt emulator. I have chosen this exercise because it allows us to very simply illustrate the power of using React and FLUX. Our completed application will do the following:
@@ -66,7 +66,7 @@ $('.my-component').click(function(){
 </div>
 ```
 
-Composing this way is possible through a syntax called [jsx](need_link). In a web browser, this code would render as invalid javascript, but our precompiler will take care of translating the `jsx` into valid javascript for us.
+Composing this way is possible through a syntax called [jsx](https://facebook.github.io/react/docs/jsx-in-depth.html). In a web browser, this code would render as invalid javascript, but our precompiler will take care of translating the `jsx` into valid javascript for us.
 
 In addition to allowing fluid and modular composition of component architecture, react also gives us the added bonus of providing a sophisticated DOM change detection system which only repaints sections of the DOM that are necessary, as DOM manipulation is very taxing on browser resources, especially when it is frequently re-drawn.
 
@@ -222,7 +222,7 @@ Ultimately, both frameworks share a lot of similarities. Angular has many built-
 ### React
 * components
 
-You can see that React ships by default with much less overhead. Because of it's design, React allows you to take a very simple (but well-designed) structure and exploit it to the most complex application states. Of course, if you want to build a single page application, you will need to import your own router (many use [react-router](need_link)), and if you wish to delegate actions through an event-based system, you will want to implement `flux`. Once this is done, your application will resemble an angular app in complexity.
+You can see that React ships by default with much less overhead. Because of it's design, React allows you to take a very simple (but well-designed) structure and exploit it to the most complex application states. Of course, if you want to build a single page application, you will need to import your own router (many use [react-router](https://github.com/reactjs/react-router)), and if you wish to delegate actions through an event-based system, you will want to implement `flux`. Once this is done, your application will resemble an angular app in complexity.
 
 Where react shines is in understanding that you can exploit their 2 way binding and lifecycle events without all of the extra application overhead.
 
@@ -246,7 +246,7 @@ Where react shines is in understanding that you can exploit their 2 way binding 
   * `README.md`: the file explaining all of this
 
 # Node Server
-To start the app, you of course must already have [nodejs](need_link) installed on your computer. `Nodejs` is essentially a javascript engine detached from the browser and reimplemented as a cross-platform server-side web framework. All this really means for us is that you can serve up an html file, because that's all that we are using it for in this case. If you prefer, you can use `MAMP/apache/nginx/php/python/basically anything` to write a web server that can render a static html file.
+To start the app, you of course must already have [nodejs](https://nodejs.org/en/download/) installed on your computer. `Nodejs` is essentially a javascript engine detached from the browser and reimplemented as a cross-platform server-side web framework. All this really means for us is that you can serve up an html file, because that's all that we are using it for in this case. If you prefer, you can use `MAMP/apache/nginx/php/python/basically anything` to write a web server that can render a static html file.
 
 ### how is it used in this project?
 ```javascript
@@ -385,7 +385,7 @@ As you can see, the code essentially ships with two tasks here.
 Everything to do with our flux app can be found in the `public` directory. Here is a description of each of the files, in load order:
 
 ### public/app.js
-This is essentially our app load file. If you were building an app that actually parsed several different routes (meaning, there is navigation to different pages), you would probably use the [react-router](need_link) npm package to handle those route changes. I have decided to keep it simple for this demonstration, however, as navigation is non-essential to the concepts illustrated by flux.
+This is essentially our app load file. If you were building an app that actually parsed several different routes (meaning, there is navigation to different pages), you would probably use the [react-router](https://github.com/reactjs/react-router) npm package to handle those route changes. I have decided to keep it simple for this demonstration, however, as navigation is non-essential to the concepts illustrated by flux.
 
 Instead, our app file is just simply going to render our component into the html element we set up in our html file (remember `<div id='app-target'></div>`?).
 
@@ -447,7 +447,7 @@ var Controller = React.createClass({
 module.exports = Controller
 ```
 
-As you can see above, this component subscibes to changes on the `CommandStore` in the `componentDidMount` [lifecycle event](need_link). it points the `CommandStore` to fire the `onChange` method any time the state of the store is changed (i.e. data is created, updated, or deleted).
+As you can see above, this component subscibes to changes on the `CommandStore` in the `componentDidMount` [lifecycle event](https://facebook.github.io/react/docs/component-specs.html). it points the `CommandStore` to fire the `onChange` method any time the state of the store is changed (i.e. data is created, updated, or deleted).
 
 Any time the state is updated on a react component, the `render` method will be called. This means that our `View` component will receive new data every time it is updated.
 
@@ -542,7 +542,7 @@ Another way of understanding this is that the `View` component owns the value `t
 It seems cumbersome, but it keeps your code modular. This means that the child component is in no way dependent on the parent component, which is ideal for any application. It simplifies unit testing, architectural modeling, and allows you to understand each component on a fundamental level.
 
 ##### Event Codes
-Ok, now that we got that out of the way, lets talk about the `onKeyup` event, which is where the things we care about are happening. In javascript, each keyup event in an input fires the event back to any callback methods that are listening. When it does so, it takes the key that was pressed and translates it into a [keycode](need_link). While i could talk for hours about keycodes (no i cant i am def bluffing on that), all we really care about is this:
+Ok, now that we got that out of the way, lets talk about the `onKeyup` event, which is where the things we care about are happening. In javascript, each keyup event in an input fires the event back to any callback methods that are listening. When it does so, it takes the key that was pressed and translates it into a [keycode](http://www.cambiaresearch.com/articles/15/javascript-key-codes). While i could talk for hours about keycodes (no i cant i am def bluffing on that), all we really care about is this:
 * if `e.which === 13`, then the enter key was pressed.
 We take advantage of this consistent truth about the DOM by registering it and firing our `__createCommand` method.
 
@@ -573,7 +573,7 @@ Actions are interesting, in that they do not involve react. this is because, as 
 * react
   * components
 
-Our actions file should simply expose a series of methods (often times these are basic [CRUD](need_link) operations, such as `create`). These methods can do anything they want, but ultimately serve the purpose of communicating with a dispatcher (which is subscribed to by stores).
+Our actions file should simply expose a series of methods (often times these are basic [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations, such as `create`). These methods can do anything they want, but ultimately serve the purpose of communicating with a dispatcher (which is subscribed to by stores).
 
 ```js
 // public/command-actions.js
@@ -587,7 +587,7 @@ exports.create = function(command) {
 }
 ```
 
-In this example, you can see that we simply ingest the command (i.e. what was submitted by the prompt) and bubble it up to our dispatcher. If this was a more sophisticated application, perhaps we could emit an [AJAX](need_link) request first, but no need to here.
+In this example, you can see that we simply ingest the command (i.e. what was submitted by the prompt) and bubble it up to our dispatcher. If this was a more sophisticated application, perhaps we could emit an [AJAX](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started) request first, but no need to here.
 
 ### public/dispatcher.js
 The dispatcher is a critical piece of the flux puzzle, but is itself a static piece of code. It is simply a place to pair all of the `stores` listening for actions with all of the actions that are emitting them.
@@ -614,7 +614,7 @@ While we could have very easily implemented this dispatcher ourselves, it is eas
 In our case, this means this dispatcher will be receiving the `handleAction` method from our `CommandActions.create` method, and will be distributing it to...well...really, anything, but in our case, the `CommandStore`
 
 ### public/command-store.js
-The store component can be thought of as the `database` for the front end. You could even build it out to accept a sophisticated query language (if you are interested in implementing this, i recommend looking into [backbonejs](need_link), although it is an unnecessary complication to the core flux design pattern). In our case, we only ever want to gather all of the commands in the command store, so we will only provide the method for gathering them.
+The store component can be thought of as the `database` for the front end. You could even build it out to accept a sophisticated query language (if you are interested in implementing this, i recommend looking into [backbonejs](http://backbonejs.org/), although it is an unnecessary complication to the core flux design pattern). In our case, we only ever want to gather all of the commands in the command store, so we will only provide the method for gathering them.
 
 ```js
 var AppDispatcher = require('./dispatcher');
@@ -754,6 +754,9 @@ That's all! I hope this has been a helpful introduction to the flux architecture
 
 * styling!!! (see http://hackaholics.io for inspiration)
 * clear prompt command?
-* implement [shelljs](need_link) to add sophistication to the prompt
+* implement [shelljs](https://github.com/shelljs/shelljs) to add sophistication to the prompt
 * run CommandParser at the `action layer` instead of the `view layer` (so as not to continuously rerun each command)
 * cycle through previous commands when `up arrow` is pressed
+
+## Resources
+* [React Tutorial](http://ricostacruz.com/cheatsheets/react.html)
