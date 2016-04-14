@@ -11,7 +11,9 @@ var Controller = React.createClass({
     }
   },
   componentDidMount: function() {
+    // Listen for changes to the CommandStore
     CommandStore.addChangeListener(this.onChange)
+    // create a default command
     CommandActions.create('Welcome')
   },
   onChange: function() {
@@ -20,12 +22,7 @@ var Controller = React.createClass({
     })
   },
   render: function() {
-    console.log(this.state.commands)
-    return (
-      <div className='controller'>
-        <View commands={this.state.commands} />
-      </div>
-    )
+    return <View commands={this.state.commands} />
   }
 })
 

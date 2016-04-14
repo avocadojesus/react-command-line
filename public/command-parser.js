@@ -20,5 +20,7 @@ exports.parse = function(command) {
           </ul>
         </div>
       )
+    default:
+      return <span style={{color: 'red'}}>command {command.toLowerCase()} not found</span>
   }
 }

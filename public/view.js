@@ -1,3 +1,4 @@
+// public/view.js
 var React = require('react')
 var CommandActions = require('./command-actions')
 var CommandParser = require('./command-parser')
@@ -5,7 +6,7 @@ var CommandParser = require('./command-parser')
 var View = React.createClass({
   displayName: 'View',
   propTypes: {
-    commands: React.PropTypes.string
+    commands: React.PropTypes.array
   },
   getDefaultProps: function() {
     return {
@@ -13,6 +14,7 @@ var View = React.createClass({
     }
   },
   getInitialState: function() {
+    // sets the initial value displayed in the command prompt
     return {
       command_value: ''
     }
@@ -22,33 +24,35 @@ var View = React.createClass({
     return (
       <div className='view'>
         {this.props.commands.map(function(command, i) {
+          // for each command, print the original command in the prompt
+          // for each command, print the parsed command
           return (
             <div className='command-entry-container' key={i}>
               <div className='original-command'>{command}</div>
               <div className='parsed-command'>{CommandParser.parse(command)}</div>
             </div>
           )
-          return
         })}
         <input
           type='text'
           className='command-prompt'
           value={this.state.command_value}
           onChange={function(e) {
+            // when the input value changes, update our state
             self.setState({command_value: e.target.value})
           }}
           onKeyUp={function(e) {
-            if (e.which === 13) self.__createCommand() // if enter
-            // if (e.which === 38) self.__usePreviousCommand() // if up arrow
-            // if (e.which === 40) self.__useNextCommand() // if down arrow
-            // if (e.which === 75 && e.ctrlKey) self.__deleteAllCommands()  // if ctrl + k
+            // when the enter key is pressed, create a new command
+            if (e.which === 13) self.__createCommand()
           }}
           />
       </div>
     )
   },
   __createCommand: function() {
+    // adds command to CommandStore
     CommandActions.create(this.state.command_value)
+    // clears the text input value
     this.setState({command_value: ''})
   }
 })
