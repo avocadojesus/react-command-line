@@ -10,7 +10,7 @@ var View = React.createClass({
   },
   getDefaultProps: function() {
     return {
-      commands: null
+      commands: []
     }
   },
   getInitialState: function() {
